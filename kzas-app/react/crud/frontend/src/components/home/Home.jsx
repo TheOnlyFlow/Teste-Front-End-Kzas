@@ -1,8 +1,13 @@
 import React from 'react'
 import Main from '../template/Main'
 
+
 export default props =>
-    <Main icon='user' title='Cadastro Usuários'
+
+
+
+
+<Main icon='user' title='Cadastro Usuários'
         subtitle='Teste de Front-End Kzas'
     >
         <div className='display-4'>Bem Vindo!</div>

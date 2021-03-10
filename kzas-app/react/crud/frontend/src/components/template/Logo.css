@@ -13,3 +13,10 @@ aside.logo img {
     white-space: initial;
     box-shadow: var(--shadow);
 }
+
+@media(max-width: 576px){
+    aside.logo img{
+
+        width: 400px;
+    }
+}
