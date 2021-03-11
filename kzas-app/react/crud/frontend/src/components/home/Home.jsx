@@ -1,11 +1,13 @@
 import React from 'react'
 import Main from '../template/Main'
-import Cadastro from '../user/userCrud'
+
+
+
 
 export default props =>
 
 
- <Main icon='user' title='Cadastro Usuários'
+    <Main icon='user' title='Cadastro Usuários'
         subtitle='Teste de Front-End Kzas'
     >
 

@@ -1,21 +1,9 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import Main from '../template/Main'
 
 
-const headerProps = {
-    icon: 'icons',
-    title: 'Usuários',
-    subtitle: 'Lista de Usuários  (Incluir, Listar, Alterar e Excluir)'
-}
 
-const baseUrl = 'http://localhost:3001/users'
-const initialState = {
-    user: { name: '', cpf: '', telefone: '', email: '' },
-    list: []
-}
-
-export default class UserCrud extends Component {
+export default class Cadastro extends Component {
 
     state = { ...initialState }
 
@@ -52,45 +40,6 @@ export default class UserCrud extends Component {
         const user = { ...this.state.user }
         user[event.target.name] = event.target.value
         this.setState({ user })
-    }
-
-    //Local Storage
-
-    selectAll(){
-        let User = {}
-
-        let users = User.getUsersStorage();
-
-        users.forEach(dataUser=>{
-
-            let user = new User();
-
-            user.loadFromJSON(dataUser);
-
-            this.addLine(user);
-
-        });
-
-    }
-
-    getUsersStorage(){
-
-        let users = []
-
-        if(localStorage.getItem(users)){
-
-            users = JSON.parse(sessionStorage.getItem('users'))
-        }
-    }
-
-    insertData(data){
-
-        let users = this.getUsersStorage()
-
-        users.push(data)
-
-        localStorage.setItem('users', JSON.stringify(users))
-
     }
 
     renderForm() {
@@ -174,57 +123,15 @@ export default class UserCrud extends Component {
 
     }
 
-    renderTable() {
-        return (
-            <table className="table mt-4">
-                <thead>
-                    <th>Nome</th>
-                    <th>CPF</th>
-                    <th>Telefone</th>
-                    <th>E-mail</th>
-                    <th>Ações</th>
-                </thead>
-                <tbody>
-                    {this.renderRows()}
-                </tbody>
-            </table>
-        )
-    }
-
-    renderRows() {
-        return this.state.list.map(user => {
-            return (
-                <tr key={user.id}>
-                    <td>{user.name}</td>
-                    <td>{user.cpf}</td>
-                    <td>{user.telefone}</td>
-                    <td>{user.email}</td>
-                    <td>
-                        <button className="btn btn-warning"
-                            onClick={() => this.load(user)}
-                        >
-                            <i className='fa fa-pencil'></i>
-                        </button>
-
-                        <button className="btn btn-danger ml-2"
-                            onClick={() => this.remove(user)}>
-                            <i className='fa fa-trash'></i>
-                        </button>
-                    </td>
-                </tr>
-
-            )
-        })
-    }
-
     render() {
 
 
         return (
             <Main {...headerProps}>
                 {this.renderForm()}
-                {this.renderTable()}
             </Main>
         )
     }
+
+
 }

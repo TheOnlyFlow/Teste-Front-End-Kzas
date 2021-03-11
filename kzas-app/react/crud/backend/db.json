@@ -3,12 +3,16 @@
     {
       "id": 1,
       "name": "Guilherme Correa",
-      "email": "gcorrea@gmail.com"
+      "email": "gcorrea@gmail.com",
+      "telefone": "11940693422",
+      "cpf": "45730085869"
     },
     {
       "id": 2,
       "name": "Fernanda Larissa",
-      "email": "flarissa@gmail.com"
+      "email": "flarissa@gmail.com",
+      "telefone": "11929291929",
+      "cpf": "351234242343"
     }
   ]
 }
